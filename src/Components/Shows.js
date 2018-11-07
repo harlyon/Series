@@ -3,6 +3,7 @@ import axios from 'axios';
 import logo from '../image/logo.png';
 import AllShows from './AllShows';
 
+
 class Shows extends Component {
 
     state = {
@@ -10,11 +11,16 @@ class Shows extends Component {
         query: ''
     }
 
-    // componentDidMount() {
-    //     const json = localStorage.getItem("shows");
-    //     const shows = JSON.parse(json);
-    //     this.setState({ shows });
-    // }
+    componentDidMount() {
+        const json = localStorage.getItem("series");
+        const series = JSON.parse(json);
+        this.setState({ series });
+    }
+
+    componentDidUpdate = () => {
+        const series = JSON.stringify(this.state.series);
+        localStorage.setItem("series", series);
+      }
 
     inputChange = (e) => {
         this.setState({ query: e.target.value })
@@ -50,12 +56,13 @@ class Shows extends Component {
                     <hr className="my-4" />
             </div>
                     {
-                        this.state.series.map((obj) => {
+                        this.state.series && this.state.series.map((obj) => {
                             return(
                                 <AllShows obj={obj} key={obj.show.id} />
                             )
                         })
                     }
+
         </div>
         );
     }

@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Nunito');
+
 .App {
   text-align: center;
 }
 
 body {
   background-color:#03151E;
+  font-size: 100%;
 }
 
 .white {
@@ -19,7 +22,7 @@ body {
 
 .jumbotron {
   background-image: url("./image/movie.jpg");
-  height: 450px;
+  height: 350px;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -173,11 +176,46 @@ p {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+
 }
 
 .blog-detail-ct p {
   margin-bottom: 20px;
+
 }
 
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 2px solid #ffffff;
+  max-width: 100%;
+  vertical-align: middle;
+  padding: 30px;
+}
+
+.image {
+  height: 400px;
+}
+
+.redbtn {
+  font-family: 'Dosis', sans-serif;
+  font-size: 14px;
+  color: #abb7c4;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #dd003f;
+  color: #ffffff;
+  padding: 13px 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.sidebar {
+  margin-left: 60px;
+}
+
+.ads {
+  margin-bottom: 60px;
+}
 
 

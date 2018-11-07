@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import './App.css'
-import Shows from './Components/Shows';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './App.css';
+import BRoute from './Components/Route';
+
 
 
 class App extends Component {
   render() {
     return (
       <div className="">
-        <Shows />
+        <Router>
+          <BRoute />
+        </Router>
       </div>
     );
   }
