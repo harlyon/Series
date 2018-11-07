@@ -33,7 +33,7 @@ class SingleShow extends Component {
                   <p className="time">Status: {serie.status}</p>
                   <p className="time">Language: {serie.language}</p>
                   <p className="time">Type: {serie.type}</p>
-                <p>{serie.summary}</p>
+                  <p>{serie.summary}</p>
                  <a href={serie.url} target="_blank"className="redbtn">Visit</a>
                 </div>
                 )}
