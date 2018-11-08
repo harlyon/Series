@@ -132,6 +132,11 @@ h6 {
   margin-bottom: 25px;
 }
 
+a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 p {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
@@ -207,7 +212,6 @@ img {
 .redbtn {
   font-family: 'Dosis', sans-serif;
   font-size: 14px;
-  color: #abb7c4;
   font-weight: bold;
   text-transform: uppercase;
   background-color: #dd003f;
@@ -218,12 +222,40 @@ img {
   border-radius: 5px;
 }
 
+.blackbtn {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  background-color: #000;
+  padding: 12px 24px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
 .sidebar {
   margin-left: 60px;
 }
 
 .ads {
   margin-bottom: 60px;
+}
+
+@media all and (max-width: 767px) {
+  .movie-item-style-2 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+.movie-item-style-2 h6,
+.movie-item-style-2 p {
+  text-align: center;
+ }
 }
 
 

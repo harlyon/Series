@@ -28,7 +28,11 @@ class Shows extends Component {
 
     getShow = (e) => {
         e.preventDefault();
-        axios.get(` http://api.tvmaze.com/search/shows?q=${this.state.query}`)
+        axios.get(` http://api.tvmaze.com/search/shows?q=${this.state.query}`, {
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+        })
         .then(res => {
             this.setState({ series: res.data});
             console.log(res.data);
@@ -55,9 +59,11 @@ class Shows extends Component {
                     </form>
                     <hr className="my-4" />
             </div>
+
                     {
                         this.state.series && this.state.series.map((obj) => {
                             return(
+
                                 <AllShows obj={obj} key={obj.show.id} />
                             )
                         })
