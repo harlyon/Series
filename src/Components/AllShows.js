@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 
 
 const AllShows = ({obj}) => {
+  // if(obj === '') {
+  //   return <p className="text-center">No Series Available</p>
+  // }
     return (
         <div>
             <div className="container">

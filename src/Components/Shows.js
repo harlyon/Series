@@ -35,7 +35,7 @@ class Shows extends Component {
         })
         .then(res => {
             this.setState({ series: res.data});
-            console.log(res.data);
+            // console.log(res.data);
         })
         .catch(error => {
             console.log(error);
@@ -43,6 +43,9 @@ class Shows extends Component {
     }
 
     render() {
+      // if(this.state === 0) {
+      //   return <p>Series Unavailable</p>
+      // }
         return (
         <div>
             <div className="jumbotron text-center">
