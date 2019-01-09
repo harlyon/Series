@@ -8,7 +8,8 @@ class Shows extends Component {
 
     state = {
         series: [],
-        query: ''
+        query: '',
+        loading: true
     }
 
     componentDidMount() {
@@ -34,7 +35,7 @@ class Shows extends Component {
             }
         })
         .then(res => {
-            this.setState({ series: res.data});
+            this.setState({ series: res.data, loading: false});
             // console.log(res.data);
         })
         .catch(error => {
@@ -43,16 +44,22 @@ class Shows extends Component {
     }
 
     render() {
-      // if(this.state === 0) {
-      //   return <p>Series Unavailable</p>
-      // }
         return (
         <div>
             <div className="jumbotron text-center">
                 <img src={logo} className="white" alt="logo" />
                  <br />
                  <br />
-                    <form style={{ marginBottom:"2rem" }}>
+                    {/* <form style={{ marginBottom:"2rem" }}>
+                        <input className="form__input"
+                            type="text"
+                            onChange={this.inputChange}
+                            value={this.state.query}
+                        />
+                        <button onClick={this.getShow} className="form__button">Search</button>
+                    </form> */}
+            </div>
+            <form style={{ marginBottom:"2rem" }} className="text-center">
                         <input className="form__input"
                             type="text"
                             onChange={this.inputChange}
@@ -60,19 +67,13 @@ class Shows extends Component {
                         />
                         <button onClick={this.getShow} className="form__button">Search</button>
                     </form>
-                    <hr className="my-4" />
-            </div>
-
                     {
                         this.state.series && this.state.series.map((obj) => {
                             return(
-
                                 <AllShows obj={obj} key={obj.show.id} />
                             )
                         })
                     }
-
-
         </div>
         );
     }

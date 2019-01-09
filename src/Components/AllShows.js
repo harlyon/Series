@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom';
 
 
 const AllShows = ({obj}) => {
-  // if(obj === '') {
-  //   return <p className="text-center">No Series Available</p>
-  // }
     return (
         <div>
             <div className="container">
               <div className="row">
+              <div>{obj.lenght}</div>
                 <div className="col-md-12">
                     <div className="movie-item-style-2">
                             <img src={obj.show.image? obj.show.image.medium: noimage} alt={obj.show.id} />

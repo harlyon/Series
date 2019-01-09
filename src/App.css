@@ -1,27 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis|Nunito');
-
 .App {
   text-align: center;
 }
 
 body {
-  background-color:#03151E;
+  background-color: #03151E;
   font-size: 100%;
 }
 
 .white {
   background-color: #f3f3f3;
   padding: 20px;
-  border-radius:10%;
-  -webkit-border-radius:10%;
-  -moz-border-radius:10%;
-  -ms-border-radius:10%;
-  -o-border-radius:10%;
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
 }
 
-
 .jumbotron {
-  background-image: url("./image/movie.jpg");
+  background-image: url("https://wallpapermemory.com/uploads/787/warcraft-movie-background-hd-1920x1080-132218.jpg");
   height: 350px;
   background-position: center;
   background-attachment: fixed;
@@ -29,6 +27,9 @@ body {
   background-size: cover;
 }
 
+.form {
+  background: #fff;
+}
 
 .form__input {
   background: transparent;
@@ -47,15 +48,10 @@ body {
   color: #f3f3f3;
   padding: 0.2rem 0.9rem;
   margin: 0 0.2rem;
-  border-radius: 10px;
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 500;
   margin-left: 0.7rem;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
 }
 
 input[type="text"] {
@@ -165,7 +161,6 @@ p {
   transition: all 0.5s ease-out;
 }
 
-
 .blog-detail-ct h1 {
   font-family: 'Dosis', sans-serif;
   font-size: 36px;
@@ -189,12 +184,10 @@ p {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-
 }
 
 .blog-detail-ct p {
   margin-bottom: 20px;
-
 }
 
 img {
@@ -251,11 +244,7 @@ img {
     flex-direction: column;
     padding-top: 20px;
   }
-
-.movie-item-style-2 h6,
-.movie-item-style-2 p {
-  text-align: center;
- }
+  .movie-item-style-2 h6, .movie-item-style-2 p {
+    text-align: center;
+  }
 }
-
-
