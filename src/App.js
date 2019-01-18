@@ -3,8 +3,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import BRoute from './Components/Route';
 
-
-
 class App extends Component {
   render() {
     return (
