@@ -29,7 +29,6 @@ class Shows extends Component {
 
     getShow = (e) => {
         e.preventDefault();
-
         axios.get(` http://api.tvmaze.com/search/shows?q=${this.state.query}`, {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -37,7 +36,6 @@ class Shows extends Component {
         })
         .then(res => {
             this.setState({ series: res.data, loading: false});
-            // console.log(res.data);
         })
         .catch(error => {
             console.log(error);
@@ -49,22 +47,22 @@ class Shows extends Component {
         <div>
             <div className="jumbotron text-center">
                 <img src={logo} className="white" alt="logo" />
-                 <br />
-                 <br />
+                <br />
+                <br />
             </div>
             <form style={{ marginBottom:"2rem" }} className="text-center">
-                        <input className="form__input"
-                            type="text"
-                            onChange={this.inputChange}
-                            value={this.state.query}
-                        />
-                        <button onClick={this.getShow} className="form__button">Search</button>
+            <input className="form__input"
+                type="text"
+                onChange={this.inputChange}
+                value={this.state.query}
+            />
+            <button onClick={this.getShow} className="form__button">Search</button>
             </form>
             <div>
                 {
                     this.state.series && this.state.series.map((obj) => {
                         return(
-                            <AllShows obj={obj} key={obj.show.id} />
+                        <AllShows obj={obj} key={obj.show.id} />
                         )
                     })
                 }
