@@ -1,75 +1,60 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import logo from '../image/logo.png';
-import AllShows from './AllShows';
+import React, { useState } from "react";
+import axios from "axios";
+import { APIProvider } from '../APIContext'
+import AllShows from "./AllShows";
+import logo from "../image/logo.png";
 
+const Shows = () => {
+    const [series, setSeries] = useState([]);
+    const [query, setQuery] = useState("");
+    const [loading, setLoading] = useState(true);
 
-class Shows extends Component {
+    const inputChange = e => {
+        setQuery(e.target.value);
+    };
 
-    state = {
-        series: [],
-        query: '',
-        loading: true
-    }
-
-    componentDidMount() {
-        const json = localStorage.getItem("series");
-        const series = JSON.parse(json);
-        this.setState({ series });
-    }
-
-    componentDidUpdate = () => {
-        const series = JSON.stringify(this.state.series);
-        localStorage.setItem("series", series);
-      }
-
-    inputChange = (e) => {
-        this.setState({ query: e.target.value })
-    }
-
-    getShow = (e) => {
+    const getShow = e => {
         e.preventDefault();
-        axios.get(` http://api.tvmaze.com/search/shows?q=${this.state.query}`, {
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-            }
-        })
-        .then(res => {
-            this.setState({ series: res.data, loading: false});
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }
-
-    render() {
-        return (
-        <div>
-            <div className="jumbotron text-center">
-                <img src={logo} className="white" alt="logo" />
-                <br />
-                <br />
-            </div>
-            <form style={{ marginBottom:"2rem" }} className="text-center">
-            <input className="form__input"
-                type="text"
-                onChange={this.inputChange}
-                value={this.state.query}
-            />
-            <button onClick={this.getShow} className="form__button">Search</button>
-            </form>
-            <div>
-                {
-                    this.state.series && this.state.series.map((obj) => {
-                        return(
-                        <AllShows obj={obj} key={obj.show.id} />
-                        )
-                    })
+        axios
+            .get(` http://api.tvmaze.com/search/shows?q=${query}`, {
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
                 }
+            })
+            .then(res => {
+                setLoading(false);
+                setSeries(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
+    return (
+        <APIProvider value={series}>
+            <div>
+                <div className="jumbotron text-center">
+                    <img src={logo} className="white" alt="logo" />
+                    <br />
+                    <br />
+                </div>
+                <form style={{ marginBottom: "2rem" }} className="text-center">
+                    <input
+                        className="form__input"
+                        type="text"
+                        onChange={inputChange}
+                        value={query}
+                    />
+                    <button onClick={getShow} className="form__button">
+                        Search
+                </button>
+                </form>
+                <div>
+                    {series.length && <AllShows />})}
+                </div>
             </div>
-        </div>
-        );
-    }
+        </APIProvider>
+    );
 }
 
 export default Shows;

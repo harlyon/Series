@@ -1,27 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import noimage from '../image/noImage';
 
-class SingleShow extends Component {
+const SingleShow = (props) => {
 
+    const [serie, setSerie] = useState({});
 
-        state = {
-            serie: {},
-        }
-
-    componentWillMount() {
-        const objid = this.props.match.params.objid
+    useEffect(() => {
+      const objid = props.match.params.objid
         axios.get(`http://api.tvmaze.com/shows/${objid}`)
         .then(res => {
-            this.setState({ serie: res.data })
+            setSerie(res.data)
             console.log(res.data);
         })
-    }
+    })
 
-    render() {
-
-        const { serie } = this.state;
         return (
             <div>
                 <div className="jumbotron">
@@ -44,7 +38,6 @@ class SingleShow extends Component {
             </div>
             </div>
         );
-    }
 }
 
 export default SingleShow;
